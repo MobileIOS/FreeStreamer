@@ -772,7 +772,7 @@ void Audio_Stream::audioQueueBuffersEmpty()
         Stream_Configuration *config = Stream_Configuration::configuration();
         
         pthread_mutex_lock(&m_packetQueueMutex);
-        m_playPacket = m_queuedHead;
+        m_playPacket = m_queuedTail;
         pthread_mutex_unlock(&m_packetQueueMutex);
         
         // Always make sure we are scheduled to receive data if we start buffering
